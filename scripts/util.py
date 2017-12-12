@@ -1,8 +1,10 @@
 #!/usr/bin/python3
 
 import glob
+import random
 import string
 import collections
+
 
 # Returns set of all english words in data
 def get_english_domain():
@@ -16,6 +18,7 @@ def get_english_domain():
     words.discard('')
     return words
 
+
 # Returns set of all russian words in data
 def get_russian_domain():
     words = set()
@@ -25,6 +28,7 @@ def get_russian_domain():
             words.update(i)
     words.discard('')
     return words
+
 
 # Returns a dictionary of english word : list of english sentences (list form) containing that word
 def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
@@ -38,22 +42,29 @@ def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
             d[word].append(psent)
     return d
 
+
 # Returns dictionary of english word : list of russian translations
 def test_data_loader(filepath='./dat/test/test.txt', randomize=False):
     lines = [l.strip('\n').lower() for l in open(filepath)]
     data = [(l.split(' ')[0], l.split(' ')[1:]) for l in lines]
     if randomize:
-   	    random.shuffle(data)
+        random.shuffle(data)
     d = collections.defaultdict(list)
     for l in data:
         d[l[0]].append(l[1])
     return d
 
+
+# Unweighted accuracy
+def accuracy(l):
+    return sum([1 if t[0] == t[1] else 0 for t in l]) / float(len(l))
+
+
+# Pretty prints the result
 def res_print(res):
     for pred, target in res:
         print('Pred:{} Target:{}'.format(pred[0], target))
 
-    print('\n\nACC:{}'.format(accuracy(res)))
 
 def get_word_list():
     return ['club', 'bank', 'bat', 'bear', 'club', 'match', 'mess', 'mint', 'organ', 'stalk', 'volume']

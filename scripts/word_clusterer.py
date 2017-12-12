@@ -1,7 +1,7 @@
-import numpy as np
 import sklearn
+
+from junk.data_loader import get_word_list, load_data_for_word
 from scripts import meaning
-from scripts.data_loader import get_word_list, load_data_for_word
 
 
 class WordCluster(object):

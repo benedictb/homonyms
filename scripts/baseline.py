@@ -31,7 +31,7 @@ import numpy as np
 import pandas as pd
 from sklearn.cluster import KMeans
 
-from junk.data_loader import load_data
+from junk.data_loader_old import load_data
 
 SENTIMENT_PATH = './dat/sentiment/sentiwordnet.txt'
 sent = pd.read_table(SENTIMENT_PATH, usecols=[2, 3, 4], index_col=['SynsetTerms'])
