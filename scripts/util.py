@@ -7,7 +7,7 @@ import collections
 # Returns set of all english words in data
 def get_english_domain():
     words = set()
-    dir_path = './dat/en_ru/'
+    dir_path = './dat/preprocessed/'
     for f in glob.glob(dir_path + '*.preprocessed'):
         for sent in open(f).readlines():
             table = str.maketrans(dict.fromkeys(string.punctuation))
@@ -19,7 +19,7 @@ def get_english_domain():
 # Returns set of all russian words in data
 def get_russian_domain():
     words = set()
-    with open('./dat/en_ru/test.txt') as f:
+    with open('./dat/test/test.txt') as f:
         items = [i.strip('\n').lower().split(' ')[1:] for i in f]
         for i in items:
             words.update(i)
@@ -27,7 +27,7 @@ def get_russian_domain():
     return words
 
 # Returns a dictionary of english word : list of english sentences (list form) containing that word
-def train_data_loader(filepath='./dat/en_ru/', randomize=False):
+def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
     d = {}
     for f in glob.glob(filepath + '*.preprocessed'):
         word = f.split('/')[-1].split('.')[0]
@@ -39,7 +39,7 @@ def train_data_loader(filepath='./dat/en_ru/', randomize=False):
     return d
 
 # Returns dictionary of english word : list of russian translations
-def test_data_loader(filepath='./dat/en_ru/test.txt', randomize=False):
+def test_data_loader(filepath='./dat/test/test.txt', randomize=False):
     lines = [l.strip('\n').lower() for l in open(filepath)]
     data = [(l.split(' ')[0], l.split(' ')[1:]) for l in lines]
     if randomize:
