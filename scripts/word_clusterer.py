@@ -17,14 +17,15 @@ class WordCluster(object):
         # for matrix
         m = self.load_vectors(cache=True)
 
-
     def load_vectors(self, cache=False):
         m = self.meaning(self.data, self.word)
         if cache:
             self.vectors = m
         return m
 
+
 if __name__ == '__main__':
     import random
+
     word = random.choice(get_word_list())
-    WC = WordCluster(word,meaning_metric='average')
+    WC = WordCluster(word, meaning_metric='average')
