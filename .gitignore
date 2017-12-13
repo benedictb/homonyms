@@ -5,3 +5,6 @@ dls/*
 doc/*
 nlp_env/*
 scripts/__pycache__/*
+dat/billion/*
+dat/filtered/*
+.idea/*

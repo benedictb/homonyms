@@ -62,5 +62,11 @@ def split_into_sentences(text):
         return [text]
 
 
+# https://algs4.cs.princeton.edu/35applications/stopwords.txt
+def get_stop_words():
+    with open('./dat/stopwords.txt') as f:
+        return [w.strip('\n').replace(',', '') for w in f]
+
+
 if __name__ == '__main__':
     pass

@@ -8,6 +8,7 @@ import traceback
 import scripts.util as util
 
 
+# Returns set of all english words in parallel data (not all data)
 def get_english_domain():
     words = set()
     dir_path = './dat/preprocessed/'
@@ -31,25 +32,13 @@ def get_russian_domain():
     return words
 
 
-# Returns a dictionary of english word : list of english sentences (list form) containing that word
-# def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
-#     d = {}
-#     for f in glob.glob(filepath + '*.preprocessed'):
-#         word = f.split('/')[-1].split('.')[0]
-#         d[word] = []
-#         for sent in open(f).readlines():
-#             table = str.maketrans(dict.fromkeys(string.punctuation))
-#             psent = [w for w in sent.strip('\n').lower().translate(table).split(' ') if w != '']
-#             d[word].append(psent)
-#     return d
-
-
 # Probably should adjust this func so that it just spits out the sentence
 def get_data_for_word(word):
     assert word in get_word_list()
-    with open('./dat/preprocessed/{}.preprocessed'.format(word)) as f:
-        data = util.clean_and_chop(f.readlines())
-    return data
+    with open('./dat/filtered/{}.dat'.format(word)) as f:
+        chopped =  util.clean_and_chop(f.readlines())
+        filtered = filterer(chopped)
+    return filtered
 
 
 # For now, ignoring the passages with multiple occurrences in it
@@ -105,7 +94,38 @@ def get_word_list():
     return ['bank', 'bat', 'bear', 'club', 'match', 'mess', 'mint', 'organ', 'stalk', 'volume']
 
 
+def filterer(sents):
+    stops = util.get_stop_words()
+    res = []
+    for sent in sents:
+        # filter out stop words
+        sent = [w for w in sent if w not in stops]
+
+        # filter out numbers. Not the most efficient thing on the block
+        sent = ['number' if any(i.isdigit() for i in w) else w for w in sent]
+
+        res.append(sent)
+    return res
+
+
 if __name__ == '__main__':
     for w in get_word_list():
         print(w)
         print(get_test_data_for_word(w))
+
+'''
+Artifacts
+
+# Returns a dictionary of english word : list of english sentences (list form) containing that word
+# def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
+#     d = {}
+#     for f in glob.glob(filepath + '*.preprocessed'):
+#         word = f.split('/')[-1].split('.')[0]
+#         d[word] = []
+#         for sent in open(f).readlines():
+#             table = str.maketrans(dict.fromkeys(string.punctuation))
+#             psent = [w for w in sent.strip('\n').lower().translate(table).split(' ') if w != '']
+#             d[word].append(psent)
+#     return d
+
+'''
