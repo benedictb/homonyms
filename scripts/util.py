@@ -137,7 +137,6 @@ def res_print(res):
 # Target words used
 def get_word_list():
     return ['bank', 'bat', 'bear', 'club', 'match', 'mess', 'mint', 'organ', 'stalk', 'volume']
-    # club is missing one
 
 # Taken from https://stackoverflow.com/questions/4576077/python-split-text-on-sentences
 def split_into_sentences(text):
