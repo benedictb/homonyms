@@ -7,25 +7,25 @@ import xml.etree.ElementTree as ET
 from lxml import etree
 import lxml
 
-files = ['club','bank','bat','bear','club','match','mess','mint','organ','stalk','volume']
+files = ['bank', 'bat', 'bear', 'club', 'match', 'mess', 'mint', 'organ', 'stalk', 'volume']
 
 for f in files:
-    filepath ='./dat/en_ru/{}.xml'.format(f)
-    g = open('./dat/en_ru/{}.preprocessed'.format(f),'w+')
+    filepath = './dat/en_ru/{}.xml'.format(f)
+    g = open('./dat/en_ru/{}.preprocessed'.format(f), 'w+')
     regex = re.compile(re.escape(f), re.IGNORECASE)
 
     tree = ET.parse(filepath)
     root = tree.getroot()
     table = root[1][0]
     try:
-        for row in table.findall('{urn:schemas-microsoft-com:office:spreadsheet}Row')[1:]: # First row is a legend, can skip
+        for row in table.findall('{urn:schemas-microsoft-com:office:spreadsheet}Row')[
+                   1:]:  # First row is a legend, can skip
             eng = row[-2][0].text
             rus = row[-1][0].text
             eng = regex.sub(f.lower(), eng)
 
-            eng = eng.replace('\n',' ')
-            rus = rus.replace('\n',' ')
-
+            eng = eng.replace('\n', ' ')
+            rus = rus.replace('\n', ' ')
 
             eng_text = eng.split('[')[0]
             rus_text = rus.split('[')[0]

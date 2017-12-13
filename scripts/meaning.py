@@ -1,6 +1,4 @@
 import fasttext
-
-# tbd
 import numpy as np
 
 VECTOR_LENGTH = 300

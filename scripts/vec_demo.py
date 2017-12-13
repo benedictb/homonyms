@@ -4,6 +4,7 @@ def fasttext_demo():
     vec = model['king']
     return vec
 
+
 def glove_demo():
     import gensim
     return gensim.models.KeyedVectors.load_word2vec_format('./vec/w2v/glove.6B.{}d.w2vformat.txt'.format(str(50)),
