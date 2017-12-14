@@ -14,7 +14,7 @@ def clean_and_chop(sents):
     res = []
     for sent in sents:
         cleaned = sent.strip('\n').lower().translate(table)
-        chopped = re.split(' |-', cleaned)
+        chopped = re.split(' |-|—', cleaned)
         filtered = [w for w in chopped if w != '']
         res.append(filtered)
     return res
@@ -66,6 +66,18 @@ def split_into_sentences(text):
 def get_stop_words():
     with open('./dat/stopwords.txt') as f:
         return [w.strip('\n').replace(',', '') for w in f]
+
+
+def trim(sents, word, trim=7):
+    res = []
+    for s in sents:
+        try:
+            idx = s.index(word)
+            res.append(s[max(0, idx - trim):min(len(s), idx + trim)])
+        except ValueError:
+            print(s)
+            # exit(0)
+    return res
 
 
 if __name__ == '__main__':

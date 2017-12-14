@@ -27,11 +27,11 @@ from scripts.word_cluster import WordCluster
 
 '''
 Issues that need resolving
-- Deal with multi sentences, in training and in testing.
-- save data binaries for each word, processing time is probably increasing
+O PROB NOT Deal with multi sentences, in training and in testing.
+O I don't give a shit/ save data binaries for each word, processing time is probably increasing
 - normalize vectors OR just do cosine similarity as cluster mechanism 
-- if we do reduce dimensionality, we'd have to save the model and then apply the same reduction to new samples
-    before finding the best cluster fit
+- metrics (besides euclidean. so cosine sim)
+- make sure russian words i picked are in the vector
 '''
 
 if __name__ == '__main__':
@@ -40,6 +40,8 @@ if __name__ == '__main__':
     # word = random.choice(data.get_word_list())
     # wc.print_clusters()
 
-    wc = WordCluster(word='organ')
+    wc = WordCluster(word='mint', clusterer='agglomerative', reduce_dimensions=None)
     wc.cluster()
+    wc.visualize()
     wc.explore()
+

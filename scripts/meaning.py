@@ -1,8 +1,10 @@
 import numpy as np
+import yaml
+
 from scripts.data import get_english_domain
 from scripts.fasttext import FastVector
 
-VECTOR_LENGTH = 300
+config = yaml.load(open('homonyms.config'))
 
 
 def get_meanings():
@@ -11,11 +13,13 @@ def get_meanings():
 
 def average(data, word):
     model = FastVector('./vec/en.reduced.v2')
-    final_matrix = np.zeros([len(data), VECTOR_LENGTH])
+    final_matrix = np.zeros([len(data), config['vector_length']])
     misses = 0
     for i, line in enumerate(data):
             line = [l for l in line if l != word]
-            sent_matrix = np.zeros([len(line), VECTOR_LENGTH])
+            sent_matrix = np.zeros([len(line), config['vector_length']])
+            if not line: # Sometimes very short sentences don't have anything left in them
+                continue
             for j, word in enumerate(line):
                 try:
                     sent_matrix[j] = model[word]
