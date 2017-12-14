@@ -36,6 +36,14 @@ def get_russian_domain():
     words.discard('')
     return words
 
+def get_reduced_russian_domain():
+    words = test_data_loader()
+    s = set()
+    for k in words.keys():
+        russian_words_for_this_homonym = [l[0] for l in words[k]]
+        s.update(russian_words_for_this_homonym)
+    s.discard('none')
+    return s
 
 # Probably should adjust this func so that it just spits out the sentence
 def get_data_for_word(word, limit=None):
@@ -133,7 +141,7 @@ def get_variance_labels():
 
     return {k: v for k, v in zip(words, clusters)}
 
-# def check_
+
 
 
 if __name__ == '__main__':
@@ -145,12 +153,7 @@ if __name__ == '__main__':
     v = FastVector(vector_file='./vec/wiki.ru.vec.reduced')
     v.apply_transform('./vec/ru.txt')
 
-    words = test_data_loader()
-    s = set()
-    for k in words.keys():
-        russian_words_for_this_homonym = [l[0] for l in words[k]]
-        s.update(russian_words_for_this_homonym)
-    s.discard('none')
+    s = get_reduced_russian_domain()
 
     # I need to stop using one letter variable names, I'm running out
     for russian_word in s:
