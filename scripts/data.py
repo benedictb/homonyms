@@ -36,6 +36,7 @@ def get_russian_domain():
     words.discard('')
     return words
 
+
 def get_reduced_russian_domain():
     words = test_data_loader()
     s = set()
@@ -44,6 +45,7 @@ def get_reduced_russian_domain():
         s.update(russian_words_for_this_homonym)
     s.discard('none')
     return s
+
 
 # Probably should adjust this func so that it just spits out the sentence
 def get_data_for_word(word, limit=None):
@@ -69,19 +71,16 @@ def get_test_data_for_word(word):
     assert word in get_word_list()
 
     # with open('./dat/preprocessed/{}.preprocessed'.format(word)) as f:
-    if word != 'bear':
-        inp = get_data_for_word(word, limit=30)
-    else:
+    if word == 'bear':
         inp = get_data_for_word(word, limit=20)
+    else:
+        inp = get_data_for_word(word, limit=30)
 
     out = test_data_loader()[word]
     assert len(inp) == len(out)
 
     res = []
     for i, o in zip(inp, out):
-        # None means Wera said toss this example
-        if o == ['none']:
-            continue
         res.append((i, o[0]))
     return res
 
@@ -131,7 +130,7 @@ def get_n_clusters():
     mx = max(counts)
     mn = min(counts)
 
-    n_counts = [(c - mn) / (mx-mn) for c in counts]
+    n_counts = [(c - mn) / (mx - mn) for c in counts]
 
     max_cluster = config['max_clusters']
     min_cluster = config['min_clusters']
@@ -142,6 +141,9 @@ def get_n_clusters():
     return {k: v for k, v in zip(words, clusters)}
 
 
+def get_counts():
+    return {'bank': 169117, 'club': 108071, 'match': 96666, 'bear': 22020, 'volume': 20683, 'mess': 14100, 'bat': 9524,
+            'organ': 5988, 'mint': 1523, 'stalk': 616}
 
 
 if __name__ == '__main__':
@@ -161,6 +163,7 @@ if __name__ == '__main__':
             _ = v[russian_word]
         except KeyError:
             print(russian_word)
+
 '''
 Artifacts
 

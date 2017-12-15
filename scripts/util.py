@@ -1,6 +1,8 @@
 #!/usr/bin/python3
 import re
 
+import sklearn
+
 caps = "([A-Z])"
 prefixes = "(Mr|St|Mrs|Ms|Dr)[.]"
 suffixes = "(Inc|Ltd|Jr|Sr|Co)"
@@ -21,14 +23,18 @@ def clean_and_chop(sents):
 
 
 # Unweighted accuracy
-def accuracy(l):
-    return sum([1 if t[0] == t[1] else 0 for t in l]) / float(len(l))
+def accuracy(pred, truth):
+    return sum([t == p for t, p in zip(truth, pred)]) / float(len(truth))
+
+
+def w_f1(pred, truth):
+    return sklearn.metrics.f1_score(truth, pred, average='weighted')
 
 
 # Pretty prints the result
 def res_print(res):
     for pred, target in res:
-        print('Pred:{} Target:{}'.format(pred[0], target))
+        print('Pred:{} Target:{}'.format(pred, target))
 
 
 # Taken from https://stackoverflow.com/questions/4576077/python-split-text-on-sentences
@@ -75,7 +81,8 @@ def trim(sents, word, trim=7):
             idx = s.index(word)
             res.append(s[max(0, idx - trim):min(len(s), idx + trim)])
         except ValueError:
-            print(s)
+            # print(s)
+            continue
             # exit(0)
     return res
 

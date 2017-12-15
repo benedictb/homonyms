@@ -10,26 +10,34 @@ from sklearn.manifold import TSNE
 from matplotlib import pyplot as plt
 
 from scripts import meaning, data, util
+from scripts.fasttext import FastVector
 
 config = yaml.load(open('homonyms.config'))
 
 
 class WordCluster(object):
-    def __init__(self, word, meaning_metric='average', clusterer='hdbscan', reduce_dimensions=False):
+    def __init__(self, word, meaning_metric='average', clusterer='hdbscan', reduce_dimensions=False, normalize=False):
         if clusterer == 'hdbscan':
-            self.clusterer = hdbscan.HDBSCAN(min_samples=config['min_samples'])
+            self.clusterer = hdbscan.HDBSCAN(min_samples=int(data.get_counts()[word] * config['min_samples']),
+                                             prediction_data=True)
         elif clusterer == 'kmeans':
             self.clusterer = KMeans(n_clusters=data.get_n_clusters()[word])
-        elif clusterer == 'agglomerative':
-            self.clusterer = AgglomerativeClustering(n_clusters=data.get_n_clusters()[word], affinity='cosine', linkage='average')
+        elif clusterer == 'gmm':
+            self.clusterer = None
+        else:
+            print('Unknown clusterer')
+            exit(1)
 
+        # Normalizing data if cosine distance not avail.
+        self.clust_label = clusterer
+        self.normalize = normalize
         self.data = data.get_data_for_word(word)
         self.word = word
         self.vectors = None
         self.meaning = meaning.get_meanings()[meaning_metric]
         self.reduce_dimensions = reduce_dimensions
         if reduce_dimensions:
-            self.pca = PCA(n_components=reduce_dimensions, whiten=True)
+            self.pca = PCA(n_components=config['reduce_dims'], whiten=True)
 
     def cluster(self):
         m = self.load_vectors(cache=True)
@@ -39,16 +47,27 @@ class WordCluster(object):
 
     def load_vectors(self, cache=False):
         m = self.meaning(self.data, self.word)
-        #print([n for n in m if np.isnan(n)])
-        #print([n for n in m if not np.isfinite(n)])
-        print(np.argwhere(np.isinf(m)))
         if self.reduce_dimensions:
             m = self.pca.fit_transform(m)
+        if self.normalize:
+            m = sklearn.preprocessing.normalize(m)
         if cache:
             self.vectors = m
         return m
 
+    def load_ru_vectors(self, words):
+        v = FastVector(vector_file=config['ru_vector'])
+        v.apply_transform('./vec/ru.txt')
+        m = np.vstack([v[word] for word in words])
+        if self.reduce_dimensions:
+            m = self.pca.transform(m)
+        if self.normalize:
+            m = sklearn.preprocessing.normalize(m)
+        return m
+
     def print_cluster_overview(self):
+        print('Word:{}'.format(self.word))
+        print('Clusterer:{}'.format(self.clust_label))
         print('Number of clusters: {}'.format(len(self.counter.keys()) - 1))
         for k in self.counter.keys():
             if k >= 0:
@@ -79,7 +98,29 @@ class WordCluster(object):
         plt.scatter(vis_x, vis_y, c=self.labels, alpha=.1)
         plt.show()
 
-        # print(res.shape)
+    def test(self):
+        tdat = data.get_test_data_for_word(self.word)
+        ru_words = [sample[1] for sample in tdat]
+        if self.word == 'bear':
+            en_labels = self.labels[:20]
+        else:
+            en_labels = self.labels[:30]
+
+        # None means Wera said toss this example
+        tmp = [(e, r) for e, r in zip(en_labels, ru_words) if r != 'none']
+        en_labels = [i[0] for i in tmp]
+        ru_words = [i[1] for i in tmp]
+
+        vectors = self.load_ru_vectors(ru_words)
+        if self.clust_label == 'hdbscan':
+            ru_labels = hdbscan.approximate_predict(self.clusterer, vectors)[0]
+        elif self.clust_label == 'kmeans' or 'gmm':
+            ru_labels = self.clusterer.predict(vectors)
+        else:
+            print('Something went wrong')
+            exit(1)
+
+        return ru_labels, en_labels
 
 
 if __name__ == '__main__':
@@ -87,3 +128,10 @@ if __name__ == '__main__':
 
     word = random.choice(data.get_word_list())
     WC = WordCluster(word, meaning_metric='average')
+
+'''Artifacts
+
+        # print([n for n in m if np.isnan(n)])
+        # print([n for n in m if not np.isfinite(n)])
+        # print(np.argwhere(np.isinf(m)))
+'''
