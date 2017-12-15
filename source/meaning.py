@@ -1,8 +1,7 @@
 import numpy as np
 import yaml
 
-from scripts.data import get_english_domain
-from scripts.fasttext import FastVector
+from source.fasttext import FastVector
 
 config = yaml.load(open('homonyms.config'))
 

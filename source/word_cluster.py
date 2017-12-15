@@ -7,10 +7,11 @@ import yaml
 from sklearn.cluster import KMeans, AgglomerativeClustering
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
+from sklearn.mixture import GaussianMixture
 from matplotlib import pyplot as plt
 
-from scripts import meaning, data, util
-from scripts.fasttext import FastVector
+from source import meaning, data, util
+from source.fasttext import FastVector
 
 config = yaml.load(open('homonyms.config'))
 
@@ -23,7 +24,7 @@ class WordCluster(object):
         elif clusterer == 'kmeans':
             self.clusterer = KMeans(n_clusters=data.get_n_clusters()[word])
         elif clusterer == 'gmm':
-            self.clusterer = None
+            self.clusterer = GaussianMixture(n_components=data.get_n_clusters()[word])
         else:
             print('Unknown clusterer')
             exit(1)
@@ -41,8 +42,12 @@ class WordCluster(object):
 
     def cluster(self):
         m = self.load_vectors(cache=True)
-        cluster_labels = self.clusterer.fit_predict(m)
-        self.labels = cluster_labels
+        if self.clust_label == 'gmm':
+            self.clusterer.fit(m)
+            self.labels = self.clusterer.predict(m)
+        else:
+            cluster_labels = self.clusterer.fit_predict(m)
+            self.labels = cluster_labels
         self.counter = collections.Counter(self.labels)
 
     def load_vectors(self, cache=False):

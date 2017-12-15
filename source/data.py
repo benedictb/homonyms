@@ -3,12 +3,11 @@ import collections
 import glob
 import random
 import string
-import traceback
-import yaml
-from matplotlib import pyplot as plt
 
-import scripts.util as util
-from scripts.fasttext import FastVector
+import source.util as util
+import yaml
+
+from source.fasttext import FastVector
 
 config = yaml.load(open('homonyms.config'))
 
