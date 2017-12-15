@@ -4,7 +4,8 @@ import hdbscan
 import numpy as np
 import sklearn
 import yaml
-from sklearn.cluster import KMeans, AgglomerativeClustering
+from mpl_toolkits.mplot3d import Axes3D
+from sklearn.cluster import KMeans
 from sklearn.decomposition import PCA
 from sklearn.manifold import TSNE
 from sklearn.mixture import GaussianMixture
@@ -35,6 +36,7 @@ class WordCluster(object):
         self.data = data.get_data_for_word(word)
         self.word = word
         self.vectors = None
+        self.meaning_metric = meaning_metric
         self.meaning = meaning.get_meanings()[meaning_metric]
         self.reduce_dimensions = reduce_dimensions
         if reduce_dimensions:
@@ -61,9 +63,16 @@ class WordCluster(object):
         return m
 
     def load_ru_vectors(self, words):
-        v = FastVector(vector_file=config['ru_vector'])
-        v.apply_transform('./vec/ru.txt')
-        m = np.vstack([v[word] for word in words])
+        if self.meaning_metric == 'average':
+            v = FastVector(vector_file=config['ru_vector'])
+            v.apply_transform('./vec/ru.txt')
+            m = np.vstack([v[word] for word in words])
+        elif self.meaning_metric == 'semantics':
+            m = self.meaning(words, self.word, lang='ru')
+        else:
+            print('Error, exiting')
+            exit(1)
+
         if self.reduce_dimensions:
             m = self.pca.transform(m)
         if self.normalize:
@@ -103,6 +112,18 @@ class WordCluster(object):
         plt.scatter(vis_x, vis_y, c=self.labels, alpha=.1)
         plt.show()
 
+    def vis3d(self):
+        self.print_cluster_overview()
+        tsne = TSNE(n_components=3, verbose=1)
+        res = tsne.fit_transform(self.vectors)
+        vis_x = res[:, 0]
+        vis_y = res[:, 1]
+        vis_z = res[:, 2]
+        fig = plt.figure()
+        ax = fig.add_subplot(111, projection='3d')
+        ax.scatter(xs=vis_x, ys=vis_y, zs=vis_z, c=self.labels)
+        plt.show()
+
     def test(self):
         tdat = data.get_test_data_for_word(self.word)
         ru_words = [sample[1] for sample in tdat]
@@ -133,10 +154,3 @@ if __name__ == '__main__':
 
     word = random.choice(data.get_word_list())
     WC = WordCluster(word, meaning_metric='average')
-
-'''Artifacts
-
-        # print([n for n in m if np.isnan(n)])
-        # print([n for n in m if not np.isfinite(n)])
-        # print(np.argwhere(np.isinf(m)))
-'''

@@ -7,7 +7,7 @@ config = yaml.load(open('homonyms.config'))
 
 
 def get_meanings():
-    return {'average': average}
+    return {'average': average, 'semantics':semantics}
 
 
 def average(data, word):
@@ -31,9 +31,19 @@ def average(data, word):
     return final_matrix
 
 
-def normalized_average(data, word):
-    model = FastVector(config['en_vector'])
-    final_matrix = np.zeros([len(data), config['vector_length']])
-    misses = 0
-    for i, line in enumerate(data):
-        line = [l for l in line if l != word]
+def semantics(data, word,lang='en'):
+    from polyglot.text import Text as T
+    res = np.zeros([len(data)])
+    for i, d in enumerate(data):
+        try:
+            d.remove(word)
+            res[i] = T(' '.join(d), hint_language_code=lang).polarity
+        except ZeroDivisionError:
+            res[i] = 0.000001
+        except ValueError:
+            res[i] = 0.000001
+        except AttributeError:
+            res[i] = 0.000001
+
+    # print('Semantics generated')
+    return res.reshape(-1,1)

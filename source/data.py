@@ -146,10 +146,6 @@ def get_counts():
 
 
 if __name__ == '__main__':
-    # for w in get_word_list():
-    #     print(get_test_data_for_word(w))
-
-    # print(get_variance_labels())
 
     v = FastVector(vector_file=config['ru_vector'])
     v.apply_transform('./vec/ru.txt')
@@ -162,20 +158,3 @@ if __name__ == '__main__':
             _ = v[russian_word]
         except KeyError:
             print(russian_word)
-
-'''
-Artifacts
-
-# Returns a dictionary of english word : list of english sentences (list form) containing that word
-# def train_data_loader(filepath='./dat/preprocessed/', randomize=False):
-#     d = {}
-#     for f in glob.glob(filepath + '*.preprocessed'):
-#         word = f.split('/')[-1].split('.')[0]
-#         d[word] = []
-#         for sent in open(f).readlines():
-#             table = str.maketrans(dict.fromkeys(string.punctuation))
-#             psent = [w for w in sent.strip('\n').lower().translate(table).split(' ') if w != '']
-#             d[word].append(psent)
-#     return d
-
-'''

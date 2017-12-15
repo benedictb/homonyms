@@ -13,6 +13,7 @@ def glove_demo():
 
 model = glove_demo()
 # model = fasttext_demo()
+
 while True:
     try:
         word = input('>')
