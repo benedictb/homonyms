@@ -61,8 +61,8 @@ def make_model(epochs=10):
             docs.append(analyzedDocument(l, tags))
             I += 1
 
-        model.train(docs, total_words=10000000, epochs=epochs )
         print('Files Trained: {}'.format(F))
+        model.train(docs, total_words=300000, epochs=1)
         F += 1
         print('Saving')
         model.save('model.gensim')
