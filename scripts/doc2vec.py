@@ -19,7 +19,8 @@ def make_model(epochs=10):
     model = doc2vec.Doc2Vec(size=100,  # Model initialization
                             window=8,
                             min_count=10,
-                            workers=4)
+                            workers=4,
+                            docvecs_mapfile='./mapfile.map')
 
     analyzedDocument = namedtuple('AnalyzedDocument', 'words tags')
 
@@ -31,7 +32,7 @@ def make_model(epochs=10):
     F = 0
 
     # Deterministic for labels
-    file_list = glob.glob('./dat/billion_corpus/all/gen*')
+    file_list = glob.glob('./dat/billion_corpus/all/*')
     print(file_list)
 
     for e in range(epochs):
