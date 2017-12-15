@@ -8,11 +8,14 @@ from gensim.utils import tokenize
 import tqdm
 
 
-def make_tokens(file):
+def make_tokens(file_list):
     print('Tokenizing...')
-    hey = [list(tokenize(f.strip('\n'), lower=True, deacc=True)) for f in open(file).readlines()]
+    tokens = []
+    for file in file_list:
+        tokens+=[list(tokenize(f.strip('\n'), lower=True, deacc=True)) for f in open(file).readlines()]
     print('DONE')
-    return hey
+    print(tokens)
+    return tokens
 
 
 def build_vocab_er(file_list):
@@ -34,38 +37,39 @@ def build_vocab_er(file_list):
 def make_model(epochs=10):
     model = doc2vec.Doc2Vec(size=100,  # Model initialization
                             window=8,
-                            min_count=10,
+                            min_count=8,
                             workers=4)
     # docvecs_mapfile='./mapfile.map')
 
     analyzedDocument = namedtuple('AnalyzedDocument', 'words tags')
 
-    # This is gon' be big
-    F = 0
 
     # Deterministic for labels
-    file_list = glob.glob('./dat/billion_corpus/all/*')
-    # file_list = ['./test.txt']
+    # file_list = glob.glob('./dat/billion_corpus/all/*')
+    file_list = ['./test.txt']
     print(file_list)
 
-    model.build_vocab_from_freq(build_vocab_er(file_list))
+    word_count = build_vocab_er(file_list)
+    model.build_vocab_from_freq(word_count)
 
-    I = 0
-    for file in file_list:
+    # yay ram
+    tokens = make_tokens(file_list)
+    docs = list([(analyzedDocument(l, [i]) for l, i in zip(tokens, range(len(tokens))))])
 
-        docs = []
-        lines = make_tokens(file)
-
-        for l in tqdm.tqdm(lines, total=len(lines)):
-            tags = [I]
-            docs.append(analyzedDocument(l, tags))
-            I += 1
-
-        print('Files Trained: {}'.format(F))
-        model.train(docs, total_words=300000, epochs=1)
-        F += 1
+    for e in range(epochs):
+        model.train(docs, total_words=sum(word_count.values()), epochs=1)
+        print('Epochs Trained: {}'.format(e))
         print('Saving')
         model.save('model.gensim')
+        print('Saved')
+
+
+        # docs = []
+        # lines = make_tokens(file)
+        #
+        # for l in tqdm.tqdm(lines, total=len(lines)):
+        #     tags = [I]
+        #     I += 1
 
 
 if __name__ == '__main__':
