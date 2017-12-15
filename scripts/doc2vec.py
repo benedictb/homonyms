@@ -18,7 +18,7 @@ def make_tokens(file):
 def build_vocab_er(file_list):
     for file in tqdm.tqdm(file_list, total=len(file_list)):
         for l in open(file):
-            yield l.strip('\n')
+            yield l.strip('\n').split(' ')
 
 
 def make_model(epochs=10):
