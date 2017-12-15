@@ -72,7 +72,7 @@ def make_model(epochs=10):
 
     # yay ram
     tokens = make_tokens(file_list)
-    docs = [(analyzedDocument(l, [i]) for l, i in zip(tokens, range(len(tokens))))]
+    docs = [analyzedDocument(l, [i]) for l, i in zip(tokens, range(len(tokens)))]
 
     for e in range(epochs):
         print(type(docs))
