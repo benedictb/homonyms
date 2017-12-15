@@ -1,0 +1,667 @@
+/home/benedict/classes/nlp/project/nlp_env/bin/python /home/benedict/classes/nlp/project/scripts/main.py
+word:mess
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 423 (Rate: 0.030 words / sample)
+Word:mess
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 990 samples
+Cluster 1: 2020 samples
+Cluster 2: 1586 samples
+Cluster 3: 4582 samples
+Cluster 4: 2187 samples
+Cluster 5: 807 samples
+Cluster 6: 1195 samples
+Cluster 7: 778 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+/usr/local/lib/python3.5/dist-packages/sklearn/metrics/classification.py:1135: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no predicted samples.
+  'precision', 'predicted', average, warn_for)
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 423 (Rate: 0.030 words / sample)
+Word:mess
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 795 samples
+Cluster 1: 1388 samples
+Cluster 2: 1076 samples
+Cluster 3: 1232 samples
+Cluster 4: 965 samples
+Cluster 5: 4197 samples
+Cluster 6: 3521 samples
+Cluster 7: 971 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+/usr/local/lib/python3.5/dist-packages/sklearn/metrics/classification.py:1137: UndefinedMetricWarning: F-score is ill-defined and being set to 0.0 in labels with no true samples.
+  'recall', 'true', average, warn_for)
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 423 (Rate: 0.030 words / sample)
+Word:mess
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 2069 samples
+Cluster 1: 2267 samples
+Cluster 2: 4150 samples
+Cluster 3: 746 samples
+Cluster 4: 1308 samples
+Cluster 5: 1425 samples
+Cluster 6: 980 samples
+Cluster 7: 1200 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 423 (Rate: 0.030 words / sample)
+Word:mess
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 2298 samples
+Cluster 1: 773 samples
+Cluster 2: 1595 samples
+Cluster 3: 1977 samples
+Cluster 4: 797 samples
+Cluster 5: 1168 samples
+Cluster 6: 1000 samples
+Cluster 7: 4537 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 423 (Rate: 0.030 words / sample)
+Word:mess
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 778 samples
+Cluster 1: 1001 samples
+Cluster 2: 764 samples
+Cluster 3: 1187 samples
+Cluster 4: 3793 samples
+Cluster 5: 1324 samples
+Cluster 6: 2683 samples
+Cluster 7: 2615 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.315209696969697
+word:volume
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 738 (Rate: 0.035 words / sample)
+Word:volume
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 9539 samples
+Cluster 1: 888 samples
+Cluster 2: 9636 samples
+Cluster 3: 879 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 738 (Rate: 0.035 words / sample)
+Word:volume
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 884 samples
+Cluster 1: 9804 samples
+Cluster 2: 882 samples
+Cluster 3: 9372 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 738 (Rate: 0.035 words / sample)
+Word:volume
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 9856 samples
+Cluster 1: 876 samples
+Cluster 2: 9325 samples
+Cluster 3: 885 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 738 (Rate: 0.035 words / sample)
+Word:volume
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 881 samples
+Cluster 1: 9438 samples
+Cluster 2: 9740 samples
+Cluster 3: 883 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 738 (Rate: 0.035 words / sample)
+Word:volume
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 9757 samples
+Cluster 1: 896 samples
+Cluster 2: 876 samples
+Cluster 3: 9413 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.7800577592697159
+word:bat
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 331 (Rate: 0.034 words / sample)
+Word:bat
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 3672 samples
+Cluster 1: 1010 samples
+Cluster 2: 1077 samples
+Cluster 3: 2521 samples
+Cluster 4: 1370 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 331 (Rate: 0.034 words / sample)
+Word:bat
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 3685 samples
+Cluster 1: 1075 samples
+Cluster 2: 1349 samples
+Cluster 3: 978 samples
+Cluster 4: 2563 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 331 (Rate: 0.034 words / sample)
+Word:bat
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 970 samples
+Cluster 1: 3691 samples
+Cluster 2: 1364 samples
+Cluster 3: 1071 samples
+Cluster 4: 2554 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 331 (Rate: 0.034 words / sample)
+Word:bat
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 2511 samples
+Cluster 1: 962 samples
+Cluster 2: 1356 samples
+Cluster 3: 3737 samples
+Cluster 4: 1084 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 331 (Rate: 0.034 words / sample)
+Word:bat
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 1080 samples
+Cluster 1: 1360 samples
+Cluster 2: 2500 samples
+Cluster 3: 963 samples
+Cluster 4: 3747 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.711332868757259
+word:bank
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 4755 (Rate: 0.028 words / sample)
+Word:bank
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 49220 samples
+Cluster 1: 101139 samples
+Cluster 2: 19589 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 4755 (Rate: 0.028 words / sample)
+Word:bank
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 101002 samples
+Cluster 1: 19498 samples
+Cluster 2: 49448 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 4755 (Rate: 0.028 words / sample)
+Word:bank
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 101161 samples
+Cluster 1: 49266 samples
+Cluster 2: 19521 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 4755 (Rate: 0.028 words / sample)
+Word:bank
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 19587 samples
+Cluster 1: 49488 samples
+Cluster 2: 100873 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 4755 (Rate: 0.028 words / sample)
+Word:bank
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 49248 samples
+Cluster 1: 101216 samples
+Cluster 2: 19484 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.24520657153940512
+word:stalk
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 57 (Rate: 0.085 words / sample)
+Word:stalk
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 230 samples
+Cluster 1: 209 samples
+Cluster 2: 211 samples
+Cluster 3: 24 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 57 (Rate: 0.085 words / sample)
+Word:stalk
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 91 samples
+Cluster 1: 266 samples
+Cluster 2: 164 samples
+Cluster 3: 153 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 57 (Rate: 0.085 words / sample)
+Word:stalk
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 208 samples
+Cluster 1: 190 samples
+Cluster 2: 183 samples
+Cluster 3: 93 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 57 (Rate: 0.085 words / sample)
+Word:stalk
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 196 samples
+Cluster 1: 246 samples
+Cluster 2: 212 samples
+Cluster 3: 20 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 57 (Rate: 0.085 words / sample)
+Word:stalk
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 137 samples
+Cluster 1: 219 samples
+Cluster 2: 149 samples
+Cluster 3: 169 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.5145881626093114
+word:mint
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 121 (Rate: 0.078 words / sample)
+Word:mint
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 427 samples
+Cluster 1: 252 samples
+Cluster 2: 367 samples
+Cluster 3: 262 samples
+Cluster 4: 251 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 121 (Rate: 0.078 words / sample)
+Word:mint
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 286 samples
+Cluster 1: 239 samples
+Cluster 2: 261 samples
+Cluster 3: 443 samples
+Cluster 4: 330 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 121 (Rate: 0.078 words / sample)
+Word:mint
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 285 samples
+Cluster 1: 294 samples
+Cluster 2: 248 samples
+Cluster 3: 402 samples
+Cluster 4: 330 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 121 (Rate: 0.078 words / sample)
+Word:mint
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 341 samples
+Cluster 1: 183 samples
+Cluster 2: 437 samples
+Cluster 3: 366 samples
+Cluster 4: 232 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 121 (Rate: 0.078 words / sample)
+Word:mint
+Clusterer:kmeans
+Number of clusters: 4
+Cluster 0: 279 samples
+Cluster 1: 235 samples
+Cluster 2: 110 samples
+Cluster 3: 561 samples
+Cluster 4: 374 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.4001448793327812
+word:bear
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 663 (Rate: 0.030 words / sample)
+Word:bear
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 1887 samples
+Cluster 1: 8278 samples
+Cluster 2: 1986 samples
+Cluster 3: 9939 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 663 (Rate: 0.030 words / sample)
+Word:bear
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 7944 samples
+Cluster 1: 10285 samples
+Cluster 2: 1891 samples
+Cluster 3: 1970 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 663 (Rate: 0.030 words / sample)
+Word:bear
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 13207 samples
+Cluster 1: 1901 samples
+Cluster 2: 1950 samples
+Cluster 3: 5032 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 663 (Rate: 0.030 words / sample)
+Word:bear
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 10511 samples
+Cluster 1: 1893 samples
+Cluster 2: 1976 samples
+Cluster 3: 7710 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 663 (Rate: 0.030 words / sample)
+Word:bear
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 9749 samples
+Cluster 1: 1878 samples
+Cluster 2: 8487 samples
+Cluster 3: 1976 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.7309356555689426
+word:match
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2204 (Rate: 0.023 words / sample)
+Word:match
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 11919 samples
+Cluster 1: 11015 samples
+Cluster 2: 11912 samples
+Cluster 3: 5461 samples
+Cluster 4: 10613 samples
+Cluster 5: 6598 samples
+Cluster 6: 31931 samples
+Cluster 7: 7697 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2204 (Rate: 0.023 words / sample)
+Word:match
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 5506 samples
+Cluster 1: 11767 samples
+Cluster 2: 31662 samples
+Cluster 3: 10652 samples
+Cluster 4: 11748 samples
+Cluster 5: 7706 samples
+Cluster 6: 11493 samples
+Cluster 7: 6612 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2204 (Rate: 0.023 words / sample)
+Word:match
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 28301 samples
+Cluster 1: 10960 samples
+Cluster 2: 10378 samples
+Cluster 3: 13764 samples
+Cluster 4: 10163 samples
+Cluster 5: 7454 samples
+Cluster 6: 5431 samples
+Cluster 7: 10695 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2204 (Rate: 0.023 words / sample)
+Word:match
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 5459 samples
+Cluster 1: 31704 samples
+Cluster 2: 7711 samples
+Cluster 3: 11892 samples
+Cluster 4: 6614 samples
+Cluster 5: 11607 samples
+Cluster 6: 11539 samples
+Cluster 7: 10620 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2204 (Rate: 0.023 words / sample)
+Word:match
+Clusterer:kmeans
+Number of clusters: 7
+Cluster 0: 10576 samples
+Cluster 1: 5370 samples
+Cluster 2: 11245 samples
+Cluster 3: 14021 samples
+Cluster 4: 10293 samples
+Cluster 5: 7366 samples
+Cluster 6: 27990 samples
+Cluster 7: 10285 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.6413512677798392
+word:organ
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 304 (Rate: 0.050 words / sample)
+Word:organ
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 1916 samples
+Cluster 1: 2210 samples
+Cluster 2: 2009 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 304 (Rate: 0.050 words / sample)
+Word:organ
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 3480 samples
+Cluster 1: 1532 samples
+Cluster 2: 1123 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 304 (Rate: 0.050 words / sample)
+Word:organ
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 1437 samples
+Cluster 1: 2152 samples
+Cluster 2: 2546 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 304 (Rate: 0.050 words / sample)
+Word:organ
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 1578 samples
+Cluster 1: 3866 samples
+Cluster 2: 691 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 304 (Rate: 0.050 words / sample)
+Word:organ
+Clusterer:kmeans
+Number of clusters: 2
+Cluster 0: 2983 samples
+Cluster 1: 1998 samples
+Cluster 2: 1154 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.7243840432724814
+word:club
+iter 0
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2652 (Rate: 0.024 words / sample)
+Word:club
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 7685 samples
+Cluster 1: 26997 samples
+Cluster 2: 18942 samples
+Cluster 3: 54846 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 1
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2652 (Rate: 0.024 words / sample)
+Word:club
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 50992 samples
+Cluster 1: 30958 samples
+Cluster 2: 7471 samples
+Cluster 3: 19049 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 2
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2652 (Rate: 0.024 words / sample)
+Word:club
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 52478 samples
+Cluster 1: 7436 samples
+Cluster 2: 19076 samples
+Cluster 3: 29480 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 3
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2652 (Rate: 0.024 words / sample)
+Word:club
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 52414 samples
+Cluster 1: 19202 samples
+Cluster 2: 29326 samples
+Cluster 3: 7528 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+iter 4
+reading word vectors from ./vec/en.reduced.v2
+Vector misses: 2652 (Rate: 0.024 words / sample)
+Word:club
+Clusterer:kmeans
+Number of clusters: 3
+Cluster 0: 52436 samples
+Cluster 1: 19314 samples
+Cluster 2: 29165 samples
+Cluster 3: 7555 samples
+Unlabeled: 0 samples
+reading word vectors from ./vec/ru.reduced.v3
+F1:0.37283201301035024
+
+Process finished with exit code 0

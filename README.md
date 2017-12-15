@@ -1,11 +1,13 @@
 # homonyms
-Detecting homonyms in text and finding their best translations.
+Find new word meanings in vector space by clustering their sentences.
 
-Uses fasttext vectors, gensim, sklearn.
+Uses fasttext vectors, gensim, sklearn and [this wonderful project](https://github.com/Babylonpartners/fastText_multilingual).
 
-Assumes you have en and ru fasttext vectors downloaded into a `vec` folder in the root directory.
+Assumes you have downloaded necessary data, vectors and transformation files. They are available [here](https://drive.google.com/open?id=1Vg0792wD3SWn04R_GwmmsY92AkISY2EW).
 
-Data breakdown by number of samples, across 4 orders of magnitude
+`homonyms.config` provides a good deal of customization. I used pyyaml for that.
+
+Data breakdown by number of samples, across 4 orders of magnitude.
 
 ```
   448308 total
@@ -20,3 +22,11 @@ Data breakdown by number of samples, across 4 orders of magnitude
     1523 mint.txt
      616 stalk.txt
 ```
+
+Not particularly informative, but here's a t-SNE visualization of one of the clusters, just because they're cool. 
+
+![organ](dat/organ_kmeans.png "'organ' Clustering")
+
+
+*A plot of KMeans clustering for the word "organ"*
+

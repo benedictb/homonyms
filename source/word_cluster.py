@@ -68,7 +68,7 @@ class WordCluster(object):
     def print_cluster_overview(self):
         print('Word:{}'.format(self.word))
         print('Clusterer:{}'.format(self.clust_label))
-        print('Number of clusters: {}'.format(len(self.counter.keys()) - 1))
+        print('Number of clusters: {}'.format(len(self.counter.keys())))
         for k in self.counter.keys():
             if k >= 0:
                 print('Cluster {}: {} samples'.format(k, self.counter[k]))
@@ -106,7 +106,7 @@ class WordCluster(object):
         else:
             en_labels = self.labels[:30]
 
-        # None means Wera said toss this example
+        # None means Wera said toss this example. this is just foolery
         tmp = [(e, r) for e, r in zip(en_labels, ru_words) if r != 'none']
         en_labels = [i[0] for i in tmp]
         ru_words = [i[1] for i in tmp]
