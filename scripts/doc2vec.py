@@ -47,8 +47,7 @@ def make_model(epochs=10):
 
         model.alpha, model.min_alpha = alpha_val, alpha_val
         I = 0
-
-
+        for file in file_list:
 
             docs = []
             lines = make_tokens(file)
