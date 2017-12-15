@@ -2,10 +2,11 @@ import glob
 import random
 
 from gensim.models import doc2vec
-from collections import namedtuple
+from collections import namedtuple, Counter
 
 from gensim.utils import tokenize
 import tqdm
+
 
 def make_tokens(file):
     print('Tokenizing...')
@@ -15,10 +16,12 @@ def make_tokens(file):
     #     for l in lines:
     #         f.write(l + '\n')
 
+
 def build_vocab_er(file_list):
+    c = Counter
     for file in tqdm.tqdm(file_list, total=len(file_list)):
         for l in open(file):
-            yield l.strip('\n').split(' ')
+            c.update(l.strip('\n').split(' '))
 
 
 def make_model(epochs=10):
@@ -41,7 +44,7 @@ def make_model(epochs=10):
     file_list = glob.glob('./dat/billion_corpus/all/*')
     print(file_list)
 
-    model.build_vocab(build_vocab_er(file_list))
+    model.build_vocab_from_freq(build_vocab_er(file_list))
 
     for e in range(epochs):
 
