@@ -120,7 +120,7 @@ def filterer(sents):
 
 # Estimation of num clusters, this would be better if I was better at statistics
 # But this is a way to get a approximate amount of clusters for each word without changing it every time
-def get_variance_labels():
+def get_n_clusters():
     counts = []
     testData = test_data_loader()
     words = list(testData.keys())
@@ -150,7 +150,7 @@ if __name__ == '__main__':
 
     # print(get_variance_labels())
 
-    v = FastVector(vector_file='./vec/wiki.ru.vec.reduced')
+    v = FastVector(vector_file=config['ru_vector'])
     v.apply_transform('./vec/ru.txt')
 
     s = get_reduced_russian_domain()

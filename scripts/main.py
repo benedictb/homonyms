@@ -33,6 +33,13 @@ O I don't give a shit/ save data binaries for each word, processing time is prob
 - metrics (besides euclidean. so cosine sim)
 - make sure russian words i picked are in the vector
 '''
+'''
+Better for sentence average
+https://www.quora.com/In-Word2Vec-representation-does-the-average-vector-of-the-sentence-can-represent-the-sentence
+
+doc2vec if you're going to do anything
+https://stackoverflow.com/questions/31321209/doc2vec-how-to-get-document-vectors
+'''
 
 if __name__ == '__main__':
     # v = FastVector(vector_file='./vec/wiki.ru.vec.reduced')
@@ -40,8 +47,8 @@ if __name__ == '__main__':
     # word = random.choice(data.get_word_list())
     # wc.print_clusters()
 
-    wc = WordCluster(word='mint', clusterer='agglomerative', reduce_dimensions=None)
+    wc = WordCluster(word='organ', clusterer='kmeans', reduce_dimensions=None)
     wc.cluster()
-    wc.visualize()
+    # wc.visualize()
     wc.explore()
 

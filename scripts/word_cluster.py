@@ -19,9 +19,9 @@ class WordCluster(object):
         if clusterer == 'hdbscan':
             self.clusterer = hdbscan.HDBSCAN(min_samples=config['min_samples'])
         elif clusterer == 'kmeans':
-            self.clusterer = KMeans(n_clusters=config['n_clisters'])
+            self.clusterer = KMeans(n_clusters=data.get_n_clusters()[word])
         elif clusterer == 'agglomerative':
-            self.clusterer = AgglomerativeClustering(n_clusters=config['min_samples'], affinity='cosine', linkage='average')
+            self.clusterer = AgglomerativeClustering(n_clusters=data.get_n_clusters()[word], affinity='cosine', linkage='average')
 
         self.data = data.get_data_for_word(word)
         self.word = word

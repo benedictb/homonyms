@@ -17,7 +17,7 @@ if lang == 'en':
             print(line, end='')
 elif lang == 'ru':
     ru_alph = data.get_reduced_russian_domain()
-    f = open('./vec/fasttext/ru.reduced.v3')
+    f = open('./vec/fasttext/wiki.ru.vec')
     for line in f:
         if line.split(' ')[0] in ru_alph:
             print(line, end='')
